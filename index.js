@@ -1,7 +1,7 @@
 // import { VehicleFactory } from './VehicleFactory.js';
 import express  from 'express';
 import bodyParser from 'body-parser';
-import { pool } from './db';
+import { pool } from './db.js';
 
 const app = express()
 const port = 3000
