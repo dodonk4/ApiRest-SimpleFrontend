@@ -6,7 +6,7 @@ const rows = async () => {
         const response = await fetch('/api/postgreSQL');
         const data = await response.json();
         fff(data);
-        newDiv.innerText = JSON.stringify(cosa);
+        newDiv.innerText = JSON.stringify(cosa[0].model);
         productsContainer.appendChild(newDiv);
 
     } catch (error) {

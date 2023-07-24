@@ -2,8 +2,9 @@
 console.log('hola');
 
 const filesToLoad = [
-    'firstFile.js',
-    'secondFile.js'
+    // 'firstFile.js',
+    'secondFile.js',
+    'logicForDeployProducts.js'
   ];
   
   // Función que carga los archivos
