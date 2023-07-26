@@ -18,19 +18,16 @@ const products = async () =>{
         for (let i = 0; i < data.length; i++) {
             const row = data[i];
             const mimetype = 'image/jpeg';
-            // const imgBase64 = row.img.toString('base64');
             const imgBase64 = base64EncodeUint8Array(row.img.data);
             console.log(row.img);
             const product = document.createElement('div');
             product.id = `product-${i}`;
             product.className = `products`;
-            // console.log(btoa(row.img.data));
-            // console.log(typeof row.img);
             product.innerHTML = `
             <img src="data:${mimetype};base64,${imgBase64}" class="product-images">
-            <div class="texts-inside-product">Lorem Ipsum</div>
-            <div class="texts-inside-product">Lorem Ipsum</div>
-            <div class="texts-inside-product">Lorem Ipsum</div>
+            <div class="texts-inside-product">${row.type}</div>
+            <div class="texts-inside-product">${row.brand}</div>
+            <div class="texts-inside-product">${row.model}</div>
             `;
             productsContainer.appendChild(product);
     }

@@ -245,8 +245,8 @@ form{
 }
 
 .texts-inside-product{
-    position: absolute;
+    position: relative;
     background: #FFF;
-    left: 50%;
-    top: 0%;
+    left: 100%;
+    top: -102.5%;
 }
