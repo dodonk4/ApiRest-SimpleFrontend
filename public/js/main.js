@@ -4,7 +4,8 @@ console.log('hola');
 const filesToLoad = [
     // 'firstFile.js',
     'secondFile.js',
-    'logicForDeployProducts.js'
+    'logicForDeployProducts.js',
+    'sendPut.js'
   ];
   
   // Función que carga los archivos

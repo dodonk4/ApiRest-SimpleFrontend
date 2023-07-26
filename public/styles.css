@@ -12,6 +12,11 @@ a {
     color: #000;
 }
 
+form{
+    position: absolute;
+    top: 10%;
+}
+
 #rest-of-the-body{
     display: flex;
     position: absolute;
@@ -53,10 +58,10 @@ a {
     color: #000;
     font-family: Inter;
     font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
+    font-style: bold;
+    font-weight: 800;
     line-height: normal;
-    text-decoration-line: underline;
+    /* text-decoration-line: underline; */
     top: 10px;
 
     z-index: 2;
@@ -74,7 +79,7 @@ a {
     z-index: 2;
 }
 
-#settings-text{
+#user-tools-text{
     top: 320px;
 
     z-index: 2;
@@ -89,6 +94,10 @@ a {
     z-index: 2;
 }
 
+.log-titles{
+    color: #FFF;
+}
+
 #login-text{
     /* left: 10%; */
     /* align-self: right; */
@@ -99,6 +108,7 @@ a {
 
 #register-text{
     left: 55%;
+    width: 100px;
     /* top: 90%; */
 
     z-index: 2;
@@ -209,6 +219,7 @@ a {
     flex-shrink: 0;
     background-color: #000;
     left: 25%;
+    position: absolute;
 }
 
 .products{
@@ -218,9 +229,24 @@ a {
     height: 100px;
     color: #000;
     position: static;
+    margin-bottom: 1%;
+    height: 150px;
+    width: 150px;
 }
 
 .product-images{
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
+}
+
+#logout-text{
+    top: 50%;
+    left: 25%;
+}
+
+.texts-inside-product{
+    position: absolute;
+    background: #FFF;
+    left: 50%;
+    top: 0%;
 }

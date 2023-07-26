@@ -7,6 +7,12 @@ import staticPost from "./staticDatabase/CRUD/post.js";
 import staticPut from "./staticDatabase/CRUD/put.js";
 import staticDelete from "./staticDatabase/CRUD/delete.js";
 import postgreSQLGetImage from "./postgreSQL/postgreSQLGetImage.js";
+import loginGet from "./register/loginGet.js";
+import signupGet from "./register/signupGet.js";
+import loginPost from "./register/loginPost.js";
+import signupPost from "./register/signupPost.js";
+import logout from "./register/logout.js";
+import flash from "express-flash";
 
 const controller = {}
 
@@ -22,8 +28,9 @@ controller.aboutUs = (req, res) => {
     res.render('about-us');
 }
 
-controller.settings = (req, res) => {
-    res.render('settings');
+controller.userTools = (req, res) => {
+    const mensaje = req.flash('mensaje')[0];
+    res.render('userTools', { mensaje });
 }
 
 controller.postgreSQLGet = postgreSQLGet;
@@ -43,6 +50,16 @@ controller.staticPut = staticPut;
 controller.staticDelete = staticDelete;
 
 controller.postgreSQLGetImage = postgreSQLGetImage;
+
+controller.loginGet = loginGet;
+
+controller.signupGet = signupGet;
+
+controller.loginPost = loginPost;
+
+controller.signupPost = signupPost;
+
+controller.logout = logout;
 
 
 

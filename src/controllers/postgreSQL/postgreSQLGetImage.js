@@ -14,13 +14,7 @@ const postgreSQLGetImage = async (req, res) => {
 
         const rows = queryResult.rows;
 
-        // const imgBase64 = row.img.toString('base64');
-
-
-        // res.render('imagen', {
-        //     img: imgBase64
-        // });
-        res.json(rows);
+        res.json(rows)
     } catch (error) {
         console.error('Error en la consulta:', error);
         return res.status(500).send('Error en el servidor.');
