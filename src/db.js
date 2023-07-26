@@ -19,7 +19,7 @@ let pool;
 if (process.env.DATABASE_URL) {
   // En producción (Render), utiliza la conexión del archivo .env (DATABASE_URL)
   pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: process.env.DATABASE_URL + "?sslmode=require",
   });
 } else {
   // En entorno local, utiliza la conexión interna
