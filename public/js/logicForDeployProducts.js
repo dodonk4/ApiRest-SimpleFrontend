@@ -1,3 +1,5 @@
+const loader = document.getElementById('loader');
+loader.style.display = 'block';
 const products = async () =>{
     fetch('/products-from-database')
     .then(response => response.json())
@@ -30,6 +32,8 @@ const products = async () =>{
             `;
             productsContainer.appendChild(product);
     }
+
+    loader.style.display = 'none';
 
     filter();
 
