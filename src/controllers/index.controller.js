@@ -1,6 +1,7 @@
 import postgreSQLGet from "./postgreSQL/postgreSQLGet.js";
 import postgreSQLDelete from "./postgreSQL/postgreSQLDelete.js";
 import postgreSQLPut from "./postgreSQL/postgreSQLPut.js";
+import postgreSQLUsersGet from "./postgreSQL/postgreSQLUsersGet.js";
 import staticGet from "./staticDatabase/CRUD/get.js";
 import staticGetById from "./staticDatabase/CRUD/getById.js";
 import staticPost from "./staticDatabase/CRUD/post.js";
@@ -38,6 +39,8 @@ controller.postgreSQLGet = postgreSQLGet;
 controller.postgreSQLDelete = postgreSQLDelete;
 
 controller.postgreSQLPut = postgreSQLPut;
+
+controller.postgreSQLUsersGet = postgreSQLUsersGet;
 
 controller.staticGet = staticGet;
 
