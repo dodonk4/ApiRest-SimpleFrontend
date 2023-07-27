@@ -28,7 +28,7 @@ router.delete('/api/postgreSQL', controller.postgreSQLDelete);
 
 router.put('/api/postgreSQL', controller.postgreSQLPut);
 
-router.put('/api/postgreSQL/users', controller.postgreSQLUsersGet);
+router.get('/api/postgreSQL/users', controller.postgreSQLUsersGet);
 
 router.get('/api/vehicles', controller.staticGet)
   
