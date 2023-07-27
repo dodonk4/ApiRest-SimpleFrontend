@@ -26,7 +26,7 @@ if (process.env.DATABASE_URL) {
     password: process.env.POSTGRES_PASSWORD,
     port: 5432, // Puerto por defecto de PostgreSQL
   });
-  });
+
 } else {
   // En entorno local, utiliza la conexión interna
   pool = new Pool({
