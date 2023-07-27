@@ -3,8 +3,28 @@ body{
     font-family: Inter;
 }
 
+input{
+    /* width: 337px;
+    height: 59px; */
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #D9D9D9;
+    /* top: 15%; */
+}
+
+button{
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #D9D9D9;
+}
+
 div{
     position: absolute;
+    color: #000;
+}
+
+h1, h2{
+    color: #FFF;
 }
 
 a {
@@ -118,10 +138,10 @@ form{
     position: absolute;
     color: #D9D9D9;
     font-family: Inter;
-    font-size: 64px;
+    /* font-size: 64px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: normal; */
 }
 
 #search-bar{
@@ -132,6 +152,11 @@ form{
     border-radius: 30px;
     background: #D9D9D9;
     top: 15%;
+}
+
+#search-bar-div{
+    top: 15%;
+    left: 35%;
 }
 
 #filter-container{
@@ -249,4 +274,21 @@ form{
     background: #FFF;
     left: 100%;
     top: -102.5%;
+}
+
+.method-div{
+    height: 500px;
+    width: 500px;
+}
+
+#method-div-add{
+    top: 10%;
+}
+
+#method-div-put{
+    top: 40%;
+}
+
+#method-div-delete{
+    top: 70%;
 }
