@@ -1,4 +1,3 @@
-
 const products = async () =>{
     fetch('/products-from-database')
     .then(response => response.json())
@@ -25,27 +24,16 @@ const products = async () =>{
             product.className = `products`;
             product.innerHTML = `
             <img src="data:${mimetype};base64,${imgBase64}" class="product-images">
-            <div class="texts-inside-product">${row.type}</div>
-            <div class="texts-inside-product">${row.brand}</div>
-            <div class="texts-inside-product">${row.model}</div>
+            <div class="texts-inside-product product-type">${row.type}</div>
+            <div class="texts-inside-product product-brand">${row.brand}</div>
+            <div class="texts-inside-product product-model">${row.model}</div>
             `;
             productsContainer.appendChild(product);
     }
 
-
+    filter();
 
     })
 }
 
 products();
-
-
-// for (let i = 0; i < queryResult.rows.length; i++) {
-//     const row = queryResult.rows[i];
-//     const imgBase64 = row.img.toString('base64');
-//     const product = document.createElement('div');
-//     product.id = `product-${i}`;
-//     product.class = `products`;
-//     product.innerHTML = `<img src="${imgBase64}" class="product-images">`;
-//     productsContainer.appendChild(product);
-// }
