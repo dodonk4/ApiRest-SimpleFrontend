@@ -28,6 +28,9 @@ initializePassport(passport);
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 const app = express();
+
+
+
 const port = 3000;
 app.use(flash());
 app.use(session({
@@ -78,8 +81,6 @@ app.post('/api/postgreSQL', upload.single('imagen'), async (req, res) => {
     });
 
 })
-
-
 
 
 app.on('close', () => {
