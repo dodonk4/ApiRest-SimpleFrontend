@@ -76,7 +76,7 @@ app.post('/api/postgreSQL', upload.single('imagen'), async (req, res) => {
             console.error('Query error:', err);
             res.status(500).send('Error en la consulta a la base de datos.');
         } else {
-            res.redirect('/productos');
+            res.redirect('/products');
         }
     });
 
