@@ -1,7 +1,6 @@
 import express from 'express';
 import controller from '../controllers/index.controller.js';
 import bodyParser from 'body-parser';
-import passport from 'passport';
 import methodOverride from 'method-override';
 import checkAuthenticated from '../auth/checkAuthenticated.js';
 import checkNotAuthenticated from '../auth/checkNotAuthenticated.js';
@@ -46,13 +45,7 @@ router.get('/login', controller.loginGet);
 
 router.get('/signup', controller.signupGet);
 
-router.post('/login', passport.authenticate('local', {
-    successRedirect: '/products',
-    failureRedirect: '/login',
-    failureFlash: true
-}));
-
-// , controller.loginPost
+router.post('/login', controller.loginPost);
 
 router.post('/signup', controller.signupPost);
 

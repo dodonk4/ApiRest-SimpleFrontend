@@ -13,7 +13,6 @@ import signupGet from "./register/signupGet.js";
 import loginPost from "./register/loginPost.js";
 import signupPost from "./register/signupPost.js";
 import logout from "./register/logout.js";
-import flash from "express-flash";
 
 const controller = {}
 
@@ -63,7 +62,6 @@ controller.loginPost = loginPost;
 controller.signupPost = signupPost;
 
 controller.logout = logout;
-
 
 
 export default controller;

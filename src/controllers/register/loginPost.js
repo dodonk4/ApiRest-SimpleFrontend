@@ -1,5 +1,9 @@
-const loginPost = (req, res) =>{
-    res.render('nofile');
-};
+import passport from 'passport';
+
+const loginPost = passport.authenticate('local', {
+    successRedirect: '/products',
+    failureRedirect: '/login',
+    failureFlash: true
+})
 
 export default loginPost;

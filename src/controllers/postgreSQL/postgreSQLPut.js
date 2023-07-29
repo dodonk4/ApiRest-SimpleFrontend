@@ -1,13 +1,9 @@
 import { pool } from "../../db.js";
-import flash from "express-flash";
 
 const postgreSQLPut = (req, res) => {
 
-    // const vehicleId = parseInt(req.params.id);Esto es para thunder o postman
     const vehicleId = req.body.id;
     const updatedVehicle = req.body;
-    // console.log(vehicleId);
-
     
     if(!vehicleId){
     
@@ -21,18 +17,14 @@ const postgreSQLPut = (req, res) => {
         let pieceOfQueryArray = [];
         let pieceOfQuery = '';
         
-
-        // array.push(updatedVehicle.id);
         array.push(updatedVehicle.wheels);
         array.push(updatedVehicle.type);
         array.push(updatedVehicle.brand);
         array.push(updatedVehicle.model);
         
         for (let i = 0; i < array.length; i++){
-            console.log(array[i].length);
             if(array[i].length != 0){
                 pieceOfQueryArray.push(`${array2[i]} = '${array[i]}'`);
-    
             }   
         }
     
@@ -53,7 +45,6 @@ const postgreSQLPut = (req, res) => {
         }
     
         const query = `UPDATE vehicles SET ${pieceOfQuery}`;
-        console.log(query);
     
         pool.query(query, (err, result) => {
             if (err) {
@@ -62,7 +53,6 @@ const postgreSQLPut = (req, res) => {
             } else {
                 req.flash('mensaje', 'Producto Actualizado');
                 res.redirect('/userTools');
-                // res.send('Producto actualizado correctamente.');
             }
         });
     }

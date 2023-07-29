@@ -10,6 +10,7 @@ const signupPost = async (req, res) =>{
         let amountOfUsers;
 
         const result = await pool.query("SELECT * FROM users");
+        
         amountOfUsers = result.rows.length;
 
         const values = [(amountOfUsers + 1), username, email, hashedPassword]
