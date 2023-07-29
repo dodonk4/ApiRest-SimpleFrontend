@@ -24,7 +24,7 @@ const app = express();
 const port = 3000;
 app.use(flash());
 app.use(session({
-    secret: 'miClaveSecreta',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
 }));
