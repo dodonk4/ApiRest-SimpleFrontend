@@ -19,7 +19,7 @@ let pool;
 // if (process.env.DATABASE_URL) {
   // En producción (Render), utiliza la conexión del archivo .env (DATABASE_URL)
   pool = new Pool({
-    connectionString: "postgres://default:X82EWVtnZKbF@ep-silent-leaf-40142531.us-east-1.postgres.vercel-storage.com:5432/verceldb?sslmode=require",
+    connectionString: "postgres://default:mNwD3Lbhjo1v@ep-shiny-tree-43198704.us-east-1.postgres.vercel-storage.com:5432/verceldb?sslmode=require",
     // user: process.env.POSTGRES_USER,
     // host: process.env.POSTGRES_HOST,
     // database: process.env.POSTGRES_DATABASE,
