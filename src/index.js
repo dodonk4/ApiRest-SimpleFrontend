@@ -49,13 +49,13 @@ app.post('/api/postgreSQL', upload.single('imagen'), async (req, res) => {
 
     console.log(req.file);
 
-    const { wheels, type, brand, model} = req.body;
+    const { type, brand, model} = req.body;
 
-    const products = await pool.query("SELECT * FROM vehicles");
+    const products = await pool.query("SELECT * FROM products");
     const id = products.rows.length;
 
-    const query = `INSERT INTO vehicles (id, wheels, type, brand, model, img) VALUES ($1, $2, $3, $4, $5, $6)`;
-    const values = [parseInt(id + 1), parseInt(wheels), type, brand, model, buffer];
+    const query = `INSERT INTO products (id, type, brand, model, img) VALUES ($1, $2, $3, $4, $5)`;
+    const values = [parseInt(id + 1), type, brand, model, buffer];
 
     await pool.query(query, values, (err, result) => {
         if (err) {
@@ -75,7 +75,7 @@ app.on('close', () => {
   });
 
 process.on('SIGINT', () => {
-server.close();
+    server.close();
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port} ${__dirname}!`))

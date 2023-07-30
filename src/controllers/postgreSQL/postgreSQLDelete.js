@@ -2,10 +2,10 @@ import { pool } from "../../db.js";
 
 const postgreSQLDelete = (req, res) => {
 
-    const vehicleModel = req.body.model;
+    const productModel = req.body.model;
   
-    const query = 'DELETE FROM vehicles WHERE model = $1';
-    const values = [vehicleModel];
+    const query = 'DELETE FROM products WHERE model = $1';
+    const values = [productModel];
   
     pool.query(query, values, (err, result) => {
       if (err) {

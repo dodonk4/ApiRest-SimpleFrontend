@@ -15,7 +15,13 @@ router.get('/', controller.index);
 
 router.get('/products', controller.products);
 
-router.get('/about-us', controller.aboutUs);
+router.get('/documentation', controller.documentation);
+
+router.get('/documentation/products', controller.docProducts);
+
+router.get('/documentation/users', controller.docUsers);
+
+router.get('/documentation/auth', controller.docAuth);
 
 router.get('/userTools', checkAuthenticated, controller.userTools);
 
@@ -23,21 +29,9 @@ router.get('/api/postgreSQL', controller.postgreSQLGet);
 
 router.delete('/api/postgreSQL', controller.postgreSQLDelete);
 
-// router.put('/api/postgreSQL/:id', controller.postgreSQLPut);
-
 router.put('/api/postgreSQL', controller.postgreSQLPut);
 
 router.get('/api/postgreSQL/users', controller.postgreSQLUsersGet);
-
-router.get('/api/vehicles', controller.staticGet)
-  
-router.get('/api/vehicles/:id', controller.staticGetById)
-  
-router.post('/api/vehicles', controller.staticPost)
-  
-router.delete('/api/vehicles/:id', controller.staticDelete);
-  
-router.put('/api/vehicles/:id', controller.staticPut);
   
 router.get('/products-from-database', controller.postgreSQLGetImage);
 

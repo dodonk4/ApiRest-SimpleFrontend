@@ -2,25 +2,24 @@ import { pool } from "../../db.js";
 
 const postgreSQLPut = (req, res) => {
 
-    const vehicleId = req.body.id;
-    const updatedVehicle = req.body;
+    const productId = req.body.id;
+    const updatedproduct = req.body;
     
-    if(!vehicleId){
+    if(!productId){
     
-        return res.status(404).send('Vehicle not found');
+        return res.status(404).send('product not found');
     
     }else{
     
         let array = [];
-        let array2 = ['wheels', 'type', 'brand', 'model'];
+        let array2 = ['type', 'brand', 'model'];
     
         let pieceOfQueryArray = [];
         let pieceOfQuery = '';
         
-        array.push(updatedVehicle.wheels);
-        array.push(updatedVehicle.type);
-        array.push(updatedVehicle.brand);
-        array.push(updatedVehicle.model);
+        array.push(updatedproduct.type);
+        array.push(updatedproduct.brand);
+        array.push(updatedproduct.model);
         
         for (let i = 0; i < array.length; i++){
             if(array[i].length != 0){
@@ -38,13 +37,13 @@ const postgreSQLPut = (req, res) => {
     
             }else{
     
-                pieceOfQuery += ` where id = ${vehicleId}`;
+                pieceOfQuery += ` where id = ${productId}`;
     
             }
             
         }
     
-        const query = `UPDATE vehicles SET ${pieceOfQuery}`;
+        const query = `UPDATE products SET ${pieceOfQuery}`;
     
         pool.query(query, (err, result) => {
             if (err) {

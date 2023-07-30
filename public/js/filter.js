@@ -2,9 +2,9 @@ const filter = () => {
     const products = document.querySelectorAll('.products');
 
         const searchBar = document.getElementById('search-bar');
-        searchBar.addEventListener('input', searchVehicleByTyping);
+        searchBar.addEventListener('input', searchProductByTyping);
 
-        function searchVehicleByTyping() {
+        function searchProductByTyping() {
 
             const searchTerm = searchBar.value.trim().toLowerCase();
         

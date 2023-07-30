@@ -4,7 +4,7 @@ const postgreSQLGetImage = async (req, res) => {
 
     try {
         const queryResult = await pool.query(
-            'SELECT * FROM vehicles;'
+            'SELECT * FROM products;'
         );
 
         if (queryResult.rows.length === 0) {
