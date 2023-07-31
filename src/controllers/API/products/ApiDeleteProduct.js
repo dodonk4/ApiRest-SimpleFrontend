@@ -1,6 +1,11 @@
 import { pool } from "../../../db.js";
+import deleteReusable from "../../../library/delete.js";
 
 const postgreSQLDelete = (req, res, next) => {
+
+    if(req.body.model === undefined || req.body.model === ""){
+      throw new Error ("No model specified in API");
+    }
 
     const queryAndValues = deleteReusable(req.body);
 
@@ -12,7 +17,7 @@ const postgreSQLDelete = (req, res, next) => {
       try {
 
         if (result.rowCount === 0) {
-          throw new Error ("Product not found");
+          throw new Error ("Product not found in API");
         }
 
         if (err) {

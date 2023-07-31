@@ -3,6 +3,10 @@ import deleteReusable from "../../../library/delete.js";
 
 const deleteProduct = (req, res, next) => {
 
+    if(req.body.model === undefined || req.body.model === ""){
+      throw new Error ("No model specified");
+    }
+
     const queryAndValues = deleteReusable(req.body);
 
     const query = queryAndValues[0];

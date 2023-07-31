@@ -1,16 +1,15 @@
 import { pool } from "../../../db.js";
-import putReusable from "../../../library/post.js";
+import putReusable from "../../../library/put.js";
 
-
-const putProduct = async (req, res, next) => {
+const postgreSQLPut = (req, res, next) => {
 
     try {
         if(!req.body.id){
-            throw new Error ("Product Id not provided");
+            throw new Error ("Product Id not provided in API");
         }
     
         if(req.body.type === "" && req.body.brand === "" && req.body.model === ""){
-            throw new Error ("No parameters given to update");
+            throw new Error ("No parameters given to update in API");
         }
     
         const query = putReusable(req.body);
@@ -34,11 +33,12 @@ const putProduct = async (req, res, next) => {
                 next(error);
             }
     
+            
         });
     } catch (error) {
         next(error);
     }
-    
-}
 
-export default putProduct;
+};
+
+export default postgreSQLPut;

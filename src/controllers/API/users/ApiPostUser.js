@@ -1,4 +1,3 @@
-import bcrypt from 'bcryptjs';
 import { pool } from "../../../db.js";
 import signupReusable from '../../../library/signup.js';
 
@@ -18,7 +17,7 @@ const signupPost = async (req, res, next) =>{
                     console.error('Query error:', err);
                     res.status(500).send('Query error');
                 } else {
-                    res.redirect('login')
+                    res.status(200).send("User saved");
                 }
 
             } catch (error) {

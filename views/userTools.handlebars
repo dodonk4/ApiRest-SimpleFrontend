@@ -6,7 +6,7 @@
 
 <div style="height: 500px; width: 500px; top: 20%;">
     <div class="log-titles">ADD PRODUCT</div>
-    <form action="/api/postgreSQL" method="POST" enctype="multipart/form-data">
+    <form action="/products" method="POST" enctype="multipart/form-data">
         <input type="text" name="type" id="type" placeholder="Type">
         <input type="text" name="brand" id="brand" placeholder="Brand">
         <input type="text" name="model" id="model" placeholder="Model">
@@ -20,7 +20,7 @@
     <div class="log-titles">UPDATE PRODUCT</div>
 
 
-    <form id="put-form" action="/api/postgreSQL?_method=PUT" method="post" enctype="application/x-www-form-urlencoded">
+    <form id="put-form" action="/products?_method=PUT" method="post" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="_method" value="PUT">
         <input type="number" name="id" id="id" placeholder="id" style="width: 30px; color: #FFF; background: #000;">
         <input type="text" name="type" id="type" placeholder="Type">
@@ -34,7 +34,7 @@
 
 <div style="height: 500px; width: 500px;top: 60%">
     <div class="log-titles">DELETE PRODUCT</div>
-    <form action="/api/postgreSQL?_method=DELETE" method="post" enctype="application/x-www-form-urlencoded">
+    <form action="/products?_method=DELETE" method="post" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="_method" value="DELETE">
         <input type="text" name="model" id="model" placeholder="Model">
         <button type="submit">Delete</button>
