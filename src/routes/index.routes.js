@@ -29,13 +29,13 @@ router.get('/documentation/auth', controller.docAuth);
 
 router.get('/userTools', checkAuthenticated, controller.userTools);
 
-router.get('/api/products', controller.postgreSQLGet);
+router.get('/api/products', controller.apiGetProduct);
 
-router.delete('/api/products', controller.postgreSQLDelete);
+router.delete('/api/products', controller.apiDeleteProduct);
 
-router.post('/api/products', upload.single('imagen'), controller.postgreSQLPost);
+router.post('/api/products', upload.single('imagen'), controller.apiPostProduct);
 
-router.put('/api/products', controller.postgreSQLPut);
+router.put('/api/products', controller.apiPutProduct);
 
 router.get('/api/users', controller.postgreSQLUsersGet);
 
@@ -53,13 +53,13 @@ router.post('/signup', controller.signupPost);
 
 router.get('/logout', controller.logout);
 
-router.post('/api/login', controller.loginAPI);
+router.post('/api/login', controller.apiLogin);
 
 router.post('/api/loginSuccess', controller.loginSuccess);
 
 router.post('/api/loginFailure', controller.loginFailure);
 
-router.post('/api/signup', controller.signupAPI);
+router.post('/api/signup', controller.apiSignup);
 
 router.delete('/products', controller.deleteProduct)
 

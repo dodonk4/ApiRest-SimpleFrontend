@@ -1,6 +1,6 @@
 import { pool } from "../../../db.js";
 
-const postgreSQLGet = (req, res) => {
+const apiGetProducts = (req, res) => {
     pool.query('SELECT * FROM products', (err, result) => {
         if (err) {
             console.error('Query error:', err)
@@ -10,4 +10,4 @@ const postgreSQLGet = (req, res) => {
     })
 }
 
-export default postgreSQLGet;
+export default apiGetProducts;

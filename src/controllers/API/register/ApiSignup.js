@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import { pool } from "../../../db.js";
 import signupReusable from '../../../library/signup.js';
 
-const signupAPI = async (req, res, next) =>{
+const apiSignup = async (req, res, next) =>{
     try {
 
         if(req.body.username === "" || req.body.password === "" || req.body.email === ""){
@@ -25,4 +25,4 @@ const signupAPI = async (req, res, next) =>{
       }
 };
 
-export default signupAPI;
+export default apiSignup;

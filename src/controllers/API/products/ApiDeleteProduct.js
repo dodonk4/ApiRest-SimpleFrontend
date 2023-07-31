@@ -1,7 +1,7 @@
 import { pool } from "../../../db.js";
 import deleteReusable from "../../../library/delete.js";
 
-const postgreSQLDelete = (req, res, next) => {
+const apiDeleteProduct = (req, res, next) => {
 
     if(req.body.model === undefined || req.body.model === ""){
       throw new Error ("No model specified in API");
@@ -35,4 +35,4 @@ const postgreSQLDelete = (req, res, next) => {
 
 }
 
-export default postgreSQLDelete;
+export default apiDeleteProduct;

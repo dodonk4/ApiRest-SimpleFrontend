@@ -1,7 +1,7 @@
-import postgreSQLGet from "./API/products/ApiGetProduct.js";
-import postgreSQLDelete from "./API/products/ApiDeleteProduct.js";
-import postgreSQLPost from "./API/products/ApiPostProduct.js";
-import postgreSQLPut from "./API/products/ApiPutProduct.js";
+import apiGetProducts from "./API/products/ApiGetProducts.js";
+import apiDeleteProduct from "./API/products/ApiDeleteProduct.js";
+import apiPostProduct from "./API/products/ApiPostProduct.js";
+import apiPutProduct from "./API/products/ApiPutProduct.js";
 import postgreSQLUsersGet from "./API/users/ApiUserGet.js";
 import deleteProduct from "./frontendForms/products/deleteProduct.js";
 import loginGet from "./frontendForms/register/loginGet.js";
@@ -22,6 +22,12 @@ import loginFailure from "./redirections/loginFailure.js";
 import signupAPI from "./API/register/ApiSignup.js";
 import putProduct from "./frontendForms/products/putProduct.js";
 import postProduct from "./frontendForms/products/postProduct.js";
+// import apiDeleteProduct from "./API/products/ApiDeleteProduct.js";
+import apiGetProduct from "./API/products/ApiGetProducts.js";
+// import apiPostProduct from "./API/products/ApiPostProduct.js";
+import apiLogin from "./API/register/ApiLogin.js";
+import apiSignup from "./API/register/ApiSignup.js";
+// import apiPutProduct from "./API/products/ApiPutProduct.js";
 
 
 const controller = {}
@@ -40,15 +46,15 @@ controller.docUsers = docUsers;
 
 controller.userTools = userTools;
 
-controller.postgreSQLGet = postgreSQLGet;
+controller.apiGetProduct = apiGetProducts;
 
 controller.deleteProduct = deleteProduct;
 
-controller.postgreSQLDelete = postgreSQLDelete;
+controller.apiDeleteProduct = apiDeleteProduct;
 
-controller.postgreSQLPost = postgreSQLPost;
+controller.apiPostProduct = apiPostProduct;
 
-controller.postgreSQLPut = postgreSQLPut;
+controller.apiPutProduct = apiPutProduct;
 
 controller.postgreSQLUsersGet = postgreSQLUsersGet;
 
@@ -56,19 +62,21 @@ controller.loginGet = loginGet;
 
 controller.signupGet = signupGet;
 
+controller.signupPost = signupPost;
+
 controller.loginPost = loginPost;
 
-controller.signupPost = signupPost;
+controller.apiSignup = apiSignup;
 
 controller.logout = logout;
 
-controller.loginAPI = loginAPI;
+controller.apiLogin = apiLogin;
 
 controller.loginSuccess = loginSuccess;
 
 controller.loginFailure = loginFailure;
 
-controller.signupAPI = signupAPI;
+// controller.signupAPI = signupAPI;
 
 controller.postProduct = postProduct
 

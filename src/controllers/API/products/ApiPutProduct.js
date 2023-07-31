@@ -1,7 +1,7 @@
 import { pool } from "../../../db.js";
 import putReusable from "../../../library/put.js";
 
-const postgreSQLPut = (req, res, next) => {
+const apiPutProduct = (req, res, next) => {
 
     try {
         if(!req.body.id){
@@ -41,4 +41,4 @@ const postgreSQLPut = (req, res, next) => {
 
 };
 
-export default postgreSQLPut;
+export default apiPutProduct;

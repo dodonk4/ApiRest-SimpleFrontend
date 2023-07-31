@@ -2,7 +2,7 @@ import { pool } from "../../../db.js";
 import postReusable from "../../../library/post.js";
 
 
-const postgreSQLPost = async (req, res, next) => {
+const apiPostProduct = async (req, res, next) => {
         try {
             if(req.body.type === "" || req.body.brand === "" || req.body.model === "" || req.body.type === undefined || req.body.brand === undefined || req.body.model === undefined){
                 throw new Error ("Data missing in API");
@@ -36,4 +36,4 @@ const postgreSQLPost = async (req, res, next) => {
     
 }
 
-export default postgreSQLPost;
+export default apiPostProduct;
