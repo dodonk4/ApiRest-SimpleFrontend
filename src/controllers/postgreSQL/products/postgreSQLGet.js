@@ -1,4 +1,4 @@
-import { pool } from "../../db.js";
+import { pool } from "../../../db.js";
 
 const postgreSQLGet = (req, res) => {
     pool.query('SELECT * FROM products', (err, result) => {

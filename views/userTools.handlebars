@@ -1,10 +1,10 @@
 {{#if mensaje}}
-  <div class="alert alert-danger" style="position: absolute; color: #FFF; top: 5%;">
+  <div class="alert alert-danger" style="position: absolute; color: #ffffff; top: 5%;">
     {{{mensaje}}}
   </div>
 {{/if}}
 
-<div style="height: 500px; width: 500px;">
+<div style="height: 500px; width: 500px; top: 20%;">
     <div class="log-titles">ADD PRODUCT</div>
     <form action="/api/postgreSQL" method="POST" enctype="multipart/form-data">
         <input type="text" name="type" id="type" placeholder="Type">
@@ -16,7 +16,7 @@
 </div>
 
 
-<div style="height: 500px; width: 500px;top: 20%">
+<div style="height: 500px; width: 500px; top: 40%">
     <div class="log-titles">UPDATE PRODUCT</div>
 
 
@@ -32,7 +32,7 @@
 </div>
 
 
-<div style="height: 500px; width: 500px;top: 40%">
+<div style="height: 500px; width: 500px;top: 60%">
     <div class="log-titles">DELETE PRODUCT</div>
     <form action="/api/postgreSQL?_method=DELETE" method="post" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="_method" value="DELETE">

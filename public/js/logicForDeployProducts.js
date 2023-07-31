@@ -1,7 +1,7 @@
 const loader = document.getElementById('loader');
 loader.style.display = 'block';
 const products = async () =>{
-    fetch('/products-from-database')
+    fetch('/api/postgreSQL')
     .then(response => response.json())
     .then(data => {
 

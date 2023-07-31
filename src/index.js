@@ -4,21 +4,19 @@ import bodyParser from 'body-parser';
 import { pool } from './db.js';
 import __dirname from '../utils.js';
 import path from 'path';
-import multer from 'multer';
 import router from './routes/index.routes.js';
 import passport from 'passport';
 import initializePassport from './auth/passportConfig.js';
-import flash from 'express-flash';
+import flash from 'connect-flash';
 import session from 'express-session';
 import dotenv from 'dotenv';
+import errorHandlerer from './middlewares/errorHandlerer.js';
 
 dotenv.config();
 
 
 initializePassport(passport);
 
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
 const app = express();
 
 const port = 3000;
@@ -44,29 +42,8 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.post('/api/postgreSQL', upload.single('imagen'), async (req, res) => {
-    const { filename, mimetype, buffer } = req.file;
+app.use(errorHandlerer);
 
-    console.log(req.file);
-
-    const { type, brand, model} = req.body;
-
-    const products = await pool.query("SELECT * FROM products");
-    const id = products.rows.length;
-
-    const query = `INSERT INTO products (id, type, brand, model, img) VALUES ($1, $2, $3, $4, $5)`;
-    const values = [parseInt(id + 1), type, brand, model, buffer];
-
-    await pool.query(query, values, (err, result) => {
-        if (err) {
-            console.error('Query error:', err);
-            res.status(500).send('Error en la consulta a la base de datos.');
-        } else {
-            res.redirect('/products');
-        }
-    });
-
-})
 
 app.on('close', () => {
     pool.end()

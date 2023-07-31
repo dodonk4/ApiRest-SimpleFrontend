@@ -1,8 +1,8 @@
-import postgreSQLGet from "./postgreSQL/postgreSQLGet.js";
-import postgreSQLDelete from "./postgreSQL/postgreSQLDelete.js";
-import postgreSQLPut from "./postgreSQL/postgreSQLPut.js";
-import postgreSQLUsersGet from "./postgreSQL/postgreSQLUsersGet.js";
-import postgreSQLGetImage from "./postgreSQL/postgreSQLGetImage.js";
+import postgreSQLGet from "./postgreSQL/products/postgreSQLGet.js";
+import postgreSQLDelete from "./postgreSQL/products/postgreSQLDelete.js";
+import postgreSQLPost from "./postgreSQL/products/postgreSQLPost.js";
+import postgreSQLPut from "./postgreSQL/products/postgreSQLPut.js";
+import postgreSQLUsersGet from "./postgreSQL/users/postgreSQLUsersGet.js";
 import loginGet from "./register/loginGet.js";
 import signupGet from "./register/signupGet.js";
 import loginPost from "./register/loginPost.js";
@@ -36,11 +36,11 @@ controller.postgreSQLGet = postgreSQLGet;
 
 controller.postgreSQLDelete = postgreSQLDelete;
 
+controller.postgreSQLPost = postgreSQLPost;
+
 controller.postgreSQLPut = postgreSQLPut;
 
 controller.postgreSQLUsersGet = postgreSQLUsersGet;
-
-controller.postgreSQLGetImage = postgreSQLGetImage;
 
 controller.loginGet = loginGet;
 
