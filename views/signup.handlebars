@@ -1,3 +1,8 @@
+{{#if messages.error}}
+  <div class="alert alert-danger" style="position: absolute; color: #FFF; top: 5%;">
+    {{{messages.error}}}
+  </div>
+{{/if}}
 <div class="log-titles">SIGN UP</div>
 <form id="signup-form" action="/signup" method="POST">
   <input type="text" id="username" name="username" placeholder="Username">

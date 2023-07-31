@@ -49,4 +49,15 @@ router.post('/signup', controller.signupPost);
 
 router.get('/logout', controller.logout);
 
+router.post('/api/login', controller.loginAPI);
+
+router.post('/api/loginSuccess', controller.loginSuccess);
+
+router.post('/api/loginFailure', controller.loginFailure);
+
+router.post('/api/signup', controller.signupAPI);
+
+
+
+
 export default router;

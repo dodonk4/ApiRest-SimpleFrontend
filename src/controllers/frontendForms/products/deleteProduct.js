@@ -1,17 +1,12 @@
 import { pool } from "../../../db.js";
+import deleteReusable from "../../../library/delete.js";
 
 const deleteProduct = (req, res, next) => {
 
-    if(req.body.model === undefined || req.body.model === ""){
-      throw new Error ("No model specified");
-    }
+    const queryAndValues = deleteReusable(req.body);
 
-    console.log(req.body.model);
-
-    const productModel = req.body.model;
-  
-    const query = 'DELETE FROM products WHERE model = $1';
-    const values = [productModel];
+    const query = queryAndValues[0];
+    const values = queryAndValues[1];
   
     pool.query(query, values, (err, result) => {
 
