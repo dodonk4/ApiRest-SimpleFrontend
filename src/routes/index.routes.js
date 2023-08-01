@@ -67,7 +67,7 @@ router.delete('/products', controller.deleteProduct)
 
 router.put('/products', upload.single('imagen'), controller.putProduct)
 
-router.post('/products', controller.postProduct)
+router.post('/products', upload.single('imagen'),controller.postProduct)
 
 // router.post('/users', controller.postUser);
 

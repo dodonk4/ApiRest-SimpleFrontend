@@ -8,14 +8,15 @@ const postProduct = async (req, res, next) => {
             throw new Error ("Data missing");
         }
 
+        
+
         if(req.file === undefined){
             throw new Error ("The file is undefined");
         }
 
-        const queryAndValues = postReusable(req.body, req.file);
+        const queryAndValues = await postReusable(req.body, req.file);
         const query = queryAndValues[0];
-        const values = queryAndValues[0];
-
+        const values = queryAndValues[1];
 
         await pool.query(query, values, (err, result) => {
             try {
