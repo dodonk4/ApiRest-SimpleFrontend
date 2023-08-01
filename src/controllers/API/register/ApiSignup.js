@@ -1,4 +1,3 @@
-import bcrypt from 'bcryptjs';
 import { pool } from "../../../db.js";
 import signupReusable from '../../../library/signup.js';
 
@@ -20,7 +19,6 @@ const apiSignup = async (req, res, next) =>{
         res.status(200).json({ mensaje: 'Registrado exitosamente' });
     
       } catch (error) {
-        // console.log(error);
         res.json({error: error.message});
       }
 };

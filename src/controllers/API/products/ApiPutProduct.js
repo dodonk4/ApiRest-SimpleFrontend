@@ -4,9 +4,7 @@ import putReusable from "../../../library/put.js";
 const apiPutProduct = async (req, res, next) => {
 
     try {
-        console.log(req.body);
-        console.log(req.file);
-
+        
         if(!req.body.id){
             throw new Error ("Product Id not provided in API");
         }

@@ -7,11 +7,11 @@ dotenv.config();
 
 let pool;
 
-if (process.env.DATABASE_URL) {
+if (process.env.DATABASE_URL) {//For deployment
   pool = new Pool({
     connectionString: process.env.DATABASE_URL,
   });
-} else {
+} else {//For local testing
   pool = new Pool({
     user: 'partner',
     host: 'localhost',

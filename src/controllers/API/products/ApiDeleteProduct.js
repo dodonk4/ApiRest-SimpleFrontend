@@ -3,35 +3,35 @@ import deleteReusable from "../../../library/delete.js";
 
 const apiDeleteProduct = (req, res, next) => {
 
-    if(req.body.model === undefined || req.body.model === ""){
-      throw new Error ("No model specified in API");
-    }
+  if(req.body.model === undefined || req.body.model === ""){
+    throw new Error ("No model specified in API");
+  }
 
-    const queryAndValues = deleteReusable(req.body);
+  const queryAndValues = deleteReusable(req.body);
 
-    const query = queryAndValues[0];
-    const values = queryAndValues[1];
-  
-    pool.query(query, values, (err, result) => {
+  const query = queryAndValues[0];
+  const values = queryAndValues[1];
 
-      try {
+  pool.query(query, values, (err, result) => {
 
-        if (result.rowCount === 0) {
-          throw new Error ("Product not found in API");
-        }
+    try {
 
-        if (err) {
-          console.error('Query error:', err);
-          res.status(500).send('Query error');
-        } else {
-          res.status(200).send('Product Deleted');
-        }
-
-      } catch (error) {
-        next(error);
+      if (result.rowCount === 0) {
+        throw new Error ("Product not found in API");
       }
-      
-    });
+
+      if (err) {
+        console.error('Query error:', err);
+        res.status(500).send('Query error');
+      } else {
+        res.status(200).send('Product Deleted');
+      }
+
+    } catch (error) {
+      next(error);
+    }
+    
+  });
 
 }
 

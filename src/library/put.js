@@ -12,6 +12,7 @@ const putReusable = async (reqBody, reqFile) => {
         bufferContainer = buffer;
     }
 
+    // It works to order the values and achieve coherence with the query.
     if(reqBody.type && reqBody.type != ""){
         arrayOfNamesOfValuesIndexes.push(0);
         values.push(reqBody.type);
@@ -28,10 +29,6 @@ const putReusable = async (reqBody, reqFile) => {
         arrayOfNamesOfValuesIndexes.push(3);
         values.push(bufferContainer);
     }
-
-    console.log(arrayOfNamesOfValues);
-    console.log(arrayOfNamesOfValuesIndexes);
-
 
     for (let i = 0; i < arrayOfNamesOfValuesIndexes.length; i++) {
         if (i != arrayOfNamesOfValuesIndexes.length - 1) {

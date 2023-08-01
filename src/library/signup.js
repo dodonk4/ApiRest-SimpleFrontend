@@ -16,7 +16,6 @@ const signupReusable = async (reqBody) =>{
         const values = [(amountOfUsers + 1), username, email, hashedPassword]
 
         return values;
-
         
 };
 
