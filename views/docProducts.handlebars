@@ -9,9 +9,37 @@
 
 <div id="documentation-products-text" class="documentation-text">
 
-    Products GET<br><br>
-    Products POST<br><br>
-    Products PUT<br><br>
-    Products DELETE<br><br>
+    Products GET - POST - PUT - DELETE<br><br><br>
+    https://new-backend-project.onrender.com/api/products<br><br>
+
+    To Post example:<br>
+        {
+            type: "Truck",
+            brand: "Ford",
+            model: "Tauro",
+            img: "file.png"
+        }<br><br>
+    It's recommendable to upload the data in Form, because the file<br> will be saved as BYTEA type<br><br>
+    
+    To Put example:<br>
+        {
+            id: 3
+            type: "Car",
+            brand: "Fiat",
+            model: "Duna",
+            img: "duna.png"
+        }<br><br>
+    The Id works to select the product desired to be changed. <br>
+    At least, one parameter has to be passed besides the Id<br><br>
+
+    To Delete example:<br>
+        {
+            model: "Duna"
+        }<br><br>
+    The model is the only requirement to select the product<br><br>
+
+    <br><br>
+
+    *Data could be found and manipulated by requesting via Postman or ThunderClient*
 
 </div>

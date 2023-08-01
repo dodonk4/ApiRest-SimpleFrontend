@@ -27,8 +27,9 @@ import apiGetProduct from "./API/products/ApiGetProducts.js";
 // import apiPostProduct from "./API/products/ApiPostProduct.js";
 import apiLogin from "./API/register/ApiLogin.js";
 import apiSignup from "./API/register/ApiSignup.js";
+import apiLogout from "./API/register/ApiLogout.js";
 // import apiPutProduct from "./API/products/ApiPutProduct.js";
-
+import apiGetUsers from "./API/users/ApiUserGet.js";
 
 const controller = {}
 
@@ -72,6 +73,8 @@ controller.logout = logout;
 
 controller.apiLogin = apiLogin;
 
+controller.apiLogout = apiLogout;
+
 controller.loginSuccess = loginSuccess;
 
 controller.loginFailure = loginFailure;
@@ -81,6 +84,9 @@ controller.loginFailure = loginFailure;
 controller.postProduct = postProduct
 
 controller.putProduct  = putProduct;
+
+controller.apiGetUsers  = apiGetUsers;
+
 
 // controller.postUser  = postUser;
 

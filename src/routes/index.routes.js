@@ -4,7 +4,7 @@ import controller from '../controllers/index.controller.js';
 import bodyParser from 'body-parser';
 import methodOverride from 'method-override';
 import checkAuthenticated from '../auth/checkAuthenticated.js';
-import checkNotAuthenticated from '../auth/checkNotAuthenticated.js';
+import checkNotAuthenticated from '../auth/checkNotAuthenticated.js';//Future Usage
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
@@ -37,7 +37,17 @@ router.post('/api/products', upload.single('imagen'), controller.apiPostProduct)
 
 router.put('/api/products', upload.single('imagen'), controller.apiPutProduct);
 
-router.get('/api/users', controller.postgreSQLUsersGet);
+router.post('/api/login', controller.apiLogin);
+
+router.post('/api/loginSuccess', controller.loginSuccess);
+
+router.post('/api/loginFailure', controller.loginFailure);
+
+router.post('/api/signup', controller.apiSignup);
+
+router.get('/api/logout', controller.apiLogout);
+
+router.get('/api/users', controller.apiGetUsers);
 
 // router.post('/api/users', controller.postgreSQLUsersPost);
 
@@ -52,14 +62,6 @@ router.post('/login', controller.loginPost);
 router.post('/signup', controller.signupPost);
 
 router.get('/logout', controller.logout);
-
-router.post('/api/login', controller.apiLogin);
-
-router.post('/api/loginSuccess', controller.loginSuccess);
-
-router.post('/api/loginFailure', controller.loginFailure);
-
-router.post('/api/signup', controller.apiSignup);
 
 router.delete('/products', controller.deleteProduct)
 

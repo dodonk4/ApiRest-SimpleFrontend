@@ -1,6 +1,6 @@
 import { pool } from "../../../db.js";
 
-const postgreSQLUsersGet = (req, res) => {
+const apiGetUsers = (req, res) => {
     pool.query('SELECT * FROM users', (err, result) => {
         if (err) {
             console.error('Query error:', err)
@@ -10,4 +10,4 @@ const postgreSQLUsersGet = (req, res) => {
     })
 }
 
-export default postgreSQLUsersGet;
+export default apiGetUsers;
