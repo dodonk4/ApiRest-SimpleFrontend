@@ -1,9 +1,12 @@
 import { pool } from "../../../db.js";
 import putReusable from "../../../library/put.js";
 
-const apiPutProduct = (req, res, next) => {
+const apiPutProduct = async (req, res, next) => {
 
     try {
+        console.log(req.body);
+        console.log(req.file);
+
         if(!req.body.id){
             throw new Error ("Product Id not provided in API");
         }
@@ -12,9 +15,11 @@ const apiPutProduct = (req, res, next) => {
             throw new Error ("No parameters given to update in API");
         }
     
-        const query = putReusable(req.body);
+        const queryAndValues = await putReusable(req.body, req.file);
+        const query = queryAndValues[0];
+        const values = queryAndValues[1];
     
-        pool.query(query, (err, result) => {
+        pool.query(query, values, (err, result) => {
     
             try {
     
@@ -24,10 +29,9 @@ const apiPutProduct = (req, res, next) => {
     
                 if (err) {
                     console.error('Query error:', err);
-                    res.status(500).send('Error en la consulta a la base de datos.');
+                    res.status(500).send('Query error');
                 } else {
-                    req.flash('mensaje', 'Producto Actualizado');
-                    res.redirect('/userTools');
+                    res.status(200).send('Product Updated');
                 }
             } catch (error) {
                 next(error);

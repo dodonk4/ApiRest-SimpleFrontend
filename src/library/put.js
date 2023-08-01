@@ -1,45 +1,53 @@
-import { pool } from "../db.js";
-
-
-const putReusable = async (reqBody) => {
+const putReusable = async (reqBody, reqFile) => {
     const productId = reqBody.id;
-    const updatedproduct = reqBody;
-    
-    let array = [];
-    let array2 = ['type', 'brand', 'model'];
-
-    let pieceOfQueryArray = [];
     let pieceOfQuery = '';
+    let bufferContainer;
     
-    array.push(updatedproduct.type);
-    array.push(updatedproduct.brand);
-    array.push(updatedproduct.model);
-    
-    for (let i = 0; i < array.length; i++){
-        if(array[i].length != 0){
-            pieceOfQueryArray.push(`${array2[i]} = '${array[i]}'`);
-        }   
+    const arrayOfNamesOfValues = ['type', 'brand', 'model', 'img'];
+    const arrayOfNamesOfValuesIndexes = [];
+    const values = [];
+
+    if(reqFile){
+        const { filename, mimetype, buffer } = reqFile;
+        bufferContainer = buffer;
     }
 
-    for (let i = 0; i < pieceOfQueryArray.length; i++) {
+    if(reqBody.type && reqBody.type != ""){
+        arrayOfNamesOfValuesIndexes.push(0);
+        values.push(reqBody.type);
+    }
+    if(reqBody.brand && reqBody.brand != ""){
+        arrayOfNamesOfValuesIndexes.push(1);
+        values.push(reqBody.brand);
+    }
+    if(reqBody.model && reqBody.model != ""){
+        arrayOfNamesOfValuesIndexes.push(2);
+        values.push(reqBody.model);
+    }
+    if(reqFile){
+        arrayOfNamesOfValuesIndexes.push(3);
+        values.push(bufferContainer);
+    }
 
-        pieceOfQuery += pieceOfQueryArray[i];
+    console.log(arrayOfNamesOfValues);
+    console.log(arrayOfNamesOfValuesIndexes);
 
-        if (i < pieceOfQueryArray.length - 1) {
 
-            pieceOfQuery += ',';
-
-        }else{
-
-            pieceOfQuery += ` where id = ${productId}`;
-
+    for (let i = 0; i < arrayOfNamesOfValuesIndexes.length; i++) {
+        if (i != arrayOfNamesOfValuesIndexes.length - 1) {
+            pieceOfQuery += `${arrayOfNamesOfValues[arrayOfNamesOfValuesIndexes[i]]} = $${i+1}, `
+        } else if (i === arrayOfNamesOfValuesIndexes.length - 1) {
+            pieceOfQuery += `${arrayOfNamesOfValues[arrayOfNamesOfValuesIndexes[i]]} = $${i+1} `
         }
-        
     }
+
+    pieceOfQuery += `where id = ${productId};`;
 
     const query = `UPDATE products SET ${pieceOfQuery}`;
 
-    return query;
+    const cargo = [query, values];
+
+    return cargo;
 }
 
 export default putReusable;

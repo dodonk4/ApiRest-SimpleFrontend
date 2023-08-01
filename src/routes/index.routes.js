@@ -35,7 +35,7 @@ router.delete('/api/products', controller.apiDeleteProduct);
 
 router.post('/api/products', upload.single('imagen'), controller.apiPostProduct);
 
-router.put('/api/products', controller.apiPutProduct);
+router.put('/api/products', upload.single('imagen'), controller.apiPutProduct);
 
 router.get('/api/users', controller.postgreSQLUsersGet);
 
@@ -63,7 +63,7 @@ router.post('/api/signup', controller.apiSignup);
 
 router.delete('/products', controller.deleteProduct)
 
-router.put('/products', controller.putProduct)
+router.put('/products', upload.single('imagen'), controller.putProduct)
 
 router.post('/products', controller.postProduct)
 

@@ -7,19 +7,19 @@ dotenv.config();
 
 let pool;
 
-// if (process.env.DATABASE_URL) {
+if (process.env.DATABASE_URL) {
   pool = new Pool({
     connectionString: process.env.DATABASE_URL,
   });
-// } else {
-  // pool = new Pool({
-  //   user: 'partner',
-  //   host: 'localhost',
-  //   database: 'api',
-  //   password: 'password',
-  //   port: 5432,
-  // });
-// }
+} else {
+  pool = new Pool({
+    user: 'partner',
+    host: 'localhost',
+    database: 'api',
+    password: 'password',
+    port: 5432,
+  });
+}
 
 
 export { pool };

@@ -20,13 +20,13 @@
     <div class="log-titles">UPDATE PRODUCT</div>
 
 
-    <form id="put-form" action="/products?_method=PUT" method="post" enctype="application/x-www-form-urlencoded">
+    <form id="put-form" action="/products?_method=PUT" method="post" enctype="multipart/form-data">
         <input type="hidden" name="_method" value="PUT">
         <input type="number" name="id" id="id" placeholder="id" style="width: 30px; color: #FFF; background: #000;">
         <input type="text" name="type" id="type" placeholder="Type">
         <input type="text" name="brand" id="brand" placeholder="Brand">
         <input type="text" name="model" id="model" placeholder="Model">
-        <input type="file" name="img" id="img" value="Image" style="width: 135px;">
+        <input type="file" name="imagen" id="img" value="Image" style="width: 135px;">
         <button type="submit">Update</button>
     </form>
 </div>
