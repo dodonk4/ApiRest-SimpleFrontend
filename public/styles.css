@@ -290,8 +290,13 @@ form{
     color: #FFF;
     top: 20%;
     left: 35%;
-    width: 60%;
+    width: 55%;
     font-size: 20px;
+    border-radius: 30px;
+    border-color: #FFF;
+    border: solid;
+    background-color: #000;
+    padding: 10px;
 }
 
 #buttons-container-documentation{

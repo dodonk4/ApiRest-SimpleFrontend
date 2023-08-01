@@ -18,6 +18,8 @@ const postProduct = async (req, res, next) => {
         const query = queryAndValues[0];
         const values = queryAndValues[1];
 
+        console.log(values);
+
         await pool.query(query, values, (err, result) => {
             try {
                 if (err) {
