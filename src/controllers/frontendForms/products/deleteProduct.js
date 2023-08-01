@@ -3,6 +3,8 @@ import deleteReusable from "../../../library/delete.js";
 
 const deleteProduct = async (req, res, next) => {
 
+    
+
     if(req.body.model === undefined || req.body.model === ""){
       throw new Error ("No model specified");
     }
@@ -14,6 +16,9 @@ const deleteProduct = async (req, res, next) => {
     const tableLength = tableLengthQueryResult.rows[0].count;
 
     const queryAndValues = deleteReusable(req.body);
+
+    const query = queryAndValues[0];
+    const values = queryAndValues[1];
 
 
     pool.query(query, values, async (err, result) => {
